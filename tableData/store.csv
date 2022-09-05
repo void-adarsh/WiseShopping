@@ -1,0 +1,7 @@
+store_id,merchant_id,store_name,location_id,start_time,end_time,type_of_business,contact
+2,1206,Atlantic,1738,11:00:00,15:00:00,commercial,8789798
+90,1206,walmart_darthmouth,1739,10:00:00,22:00:00,commercial,123456
+91,1207,walmart,3739,10:00:00,22:00:00,commercial,8529637412
+100,1211,AsianMart,3712,10:00:00,18:00:00,commercial,8529637413
+111,1210,Sobeystore,3711,10:00:00,19:00:00,commercial,8982963743
+112,1210,IndianGroceries,3711,10:00:00,20:00:00,commercial,8982963743

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="ISO-8859-1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Loading font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="./register.css">
+
+    <title>WiseShopping Add Store</title>
+</head>
+<body>
+
+<!-- Backgrounds -->
+
+<div id="registration-bg" class="container-fluid">
+
+    <div class="bg-img"></div>
+    <div class="bg-color"></div>
+</div>
+
+<!-- End Backgrounds -->
+
+<div class="container" id="registration">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="registration">
+
+                <br>
+                <h1> Add Store </h1>
+
+                <br>
+                <br>
+
+                <!-- add location form -->
+<!--                <form action="#" th:action="@{addLocation}" th:object="${location}" method="post">-->
+
+
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" class="form-control" id="locationName"  placeholder="Enter name of the store location" th:field="*{name}">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" class="form-control" id="zipcode"  placeholder="Enter zip code of the location" th:field="*{startTime}">-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" class="form-control" id="province"  placeholder="Enter province" th:field="*{province}">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" class="form-control" id="country"  placeholder="Enter country" th:field="*{country}">-->
+<!--                    </div>-->
+
+<!--                    <br>-->
+<!--                    <button type="submit" class="btn btn-lg btn-block btn-success">Add Location</button>-->
+<!--                </form>-->
+                <!-- End add location form -->
+
+                <br>
+                <br>
+
+                <!-- add Store form -->
+                <form action="#" th:action="@{addStore}" th:object="${store}" method="post">
+
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="storeName"  placeholder="Enter store Name" th:field="*{name}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="startTime"  placeholder="Enter starting time of the store" th:field="*{startTime}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="endTime"  placeholder="Enter ending time of the store" th:field="*{endTime}">
+                    </div>
+
+                    <div class="form-group">
+                        <select name = "type" class="form-control" th:field="*{type}">
+                            <option value="" disabled selected>Select the type of store</option>
+                            <option value = "Big box retailer">Big box retailer</option>
+                            <option value = "Small retailer">Small retailer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="contact"  placeholder="Enter contact number of the store" th:field="*{contact}">
+                    </div>
+
+                    <select class="form-control" id="locationDropDown" th:field="*{location}">
+                        <option value="0">select option</option>
+                        <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.name} + ', ' + ${l.zipcode}+ ', ' + ${l.province}+ ', ' + ${l.country}"></option>
+                    </select>
+
+                    <br>
+                    <button type="submit" class="btn btn-lg btn-block btn-success">Add Store</button>
+                </form>
+                <!-- End add store form -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

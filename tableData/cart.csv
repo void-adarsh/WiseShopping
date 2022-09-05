@@ -1,0 +1,4 @@
+cart_id,user_id,status,shared_status
+15,7,checkedout,shared
+16,10,checkedout,shared
+17,7,inprogress,notshared

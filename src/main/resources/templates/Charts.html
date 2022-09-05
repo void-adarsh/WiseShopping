@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Charts With Thymeleaf</title>
+  <!--Load the AJAX API-->
+  <canvas>
+  <div id="chart">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+
+  <script th:inline="javascript">
+        var data = [[${chartData}]];
+
+var ctx = document.getElementById('chart_div').getContext("2d"); ;
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: Object.keys(data),
+            datasets: [{
+                data: Object.keys(data).map(function(key) {return data[key];}),
+                backgroundColor: [
+                    'rgb(0,255,255)',
+                    'rgb(46,139,87)',
+                    'rgb(255,165,0)'
+                ],
+                borderColor: [
+                    'rgb(0,255,255)',
+                    'rgb(46,139,87)',
+                    'rgb(255,165,0)'
+                ],
+                borderWidth: 1
+            }]
+        },
+    });
+    </script>
+    </canvas>
+  </div>
+</head>
+<body>
+<h1>Google Charts With Thymeleaf</h1>
+<div id="chart_div"></div>
+</body>
+</html>

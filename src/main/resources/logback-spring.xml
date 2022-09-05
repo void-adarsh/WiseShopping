@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<configuration>
+    <springProfile name="local">
+        <property  resource="application-local.properties"/>
+    </springProfile>
+    <springProfile name="test">
+        <property  resource="application-test.properties"/>
+    </springProfile>
+    <springProfile name="dev">
+        <property  resource="application-dev.properties"/>
+    </springProfile>
+    <springProfile name="prod">
+        <property  resource="application-prod.properties"/>
+    </springProfile>
+
+
+    <appender name = "STDOUT" class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %green(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name = "STDOUT-RUNNER" class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%green(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <appender name = "FILE" class = "ch.qos.logback.core.FileAppender">
+        <file>${logging.path}/${logging.file}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+    <root level = "INFO">
+<!--        <appender-ref ref = "FILE"/>-->
+<!--        <appender-ref ref = "STDOUT"/>-->
+    </root>
+
+    <logger name="com.csci5308.w22.wiseshopping" level="debug">
+        <appender-ref ref="STDOUT-RUNNER" />
+        <appender-ref ref = "FILE"/>
+    </logger>
+</configuration>
+
+<!-- reference : https://dzone.com/articles/configuring-logback-with-spring-boot -->
